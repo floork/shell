@@ -17,4 +17,6 @@ export VISUAL=nvim
 [ -f ~/.cargo/env ] && source $HOME/.cargo/env
 
 #starship
-eval "$(starship init bash)"
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
