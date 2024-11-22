@@ -106,7 +106,33 @@ bindkey '^E' end-of-line         # Ctrl + E: Move to end of line
 #------------------------------
 # Aliases and Shortcuts
 #------------------------------
-[ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
+if [ -f "$HOME/.aliasrc" ]; then
+  source "$HOME/.aliasrc"
+else
+  alias ..='cd ..'
+  alias cd..='cd ..'
+  alias cp='cp -r'
+  alias l='ls'
+  alias lt='tree'
+  alias reboot='sudo reboot'
+  alias poweroff='sudo poweroff'
+  alias shutdown='sudo shutdown now'
+  alias suspend='systemctl suspend'
+  alias sctl='sudo systemctl'
+  alias usystemctl='systemctl --user'
+  alias blkid='sudo blkid -o export'
+  alias dlist='sudo blkid -o list'
+  alias fontsReload='fc-cache -f -v'
+  alias fontsList='fc-list'
+  alias please='sudo $(fc -ln -1)'
+  alias fuck='please'
+  alias fck='please'
+  alias open='xdg-open'
+  alias cls='clear'
+  alias vi='nvim'
+  alias vim='nvim'
+  alias svim='sudo -E nvim'
+fi
 
 #------------------------------
 # Plugins
